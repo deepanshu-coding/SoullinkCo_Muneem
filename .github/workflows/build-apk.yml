@@ -26,8 +26,8 @@ jobs:
 
       - name: Accept all Android SDK licenses
         run: |
-          yes | sdkmanager --licenses || true
-          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses || true
+          yes | "$ANDROID_HOME/cmdline-tools/16.0/bin/sdkmanager" --licenses || true
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
