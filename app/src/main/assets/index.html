@@ -2707,8 +2707,9 @@ function parse(t){
   const amount=parseFloat(a[1].replace(/,/g,''));
   if(!(amount>0))return null;
   const d=t.search(/\b(?:debited|spent|paid|sent|withdrawn|purchase|payment of)\b/i);
+  const w=t.search(/\b(?:transaction|txn|successful(?:ly)?|swiped|charged|used at|auto-?debit|debit card|credit card|net ?banking)\b/i);
   const c=t.search(/\b(?:credited|received|deposited|refund|cashback)\b/i);
-  if(d<0&&c<0)return null;
+  if(d<0&&w<0&&c<0)return null;
   const type=c<0?'debit':d<0?'credit':(d<c?'debit':'credit');
   let m=merchantOf(t),cat;
   if(type==='credit')cat=/salary/i.test(t)?'Salary':'Other income';
