@@ -16,7 +16,7 @@ object Inbox {
 
     private val MONEY = Regex("(?:rs\\.?|inr|₹)\\s*[\\d,]+(?:\\.\\d{1,2})?", RegexOption.IGNORE_CASE)
     private val WORDS = Regex(
-        "\\b(?:debited|spent|paid|sent|withdrawn|purchase|payment of|credited|received|deposited|refund|cashback)\\b",
+        "\\b(?:debited|spent|paid|sent|withdrawn|purchase|payment of|credited|received|deposited|refund|cashback|transaction|txn|successful(?:ly)?|swiped|charged|used at|auto-?debit|debit card|credit card|net ?banking)\\b",
         RegexOption.IGNORE_CASE
     )
 
